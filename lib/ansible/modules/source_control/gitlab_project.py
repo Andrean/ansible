@@ -304,7 +304,7 @@ def main():
             public=dict(default=False, type='bool'),
             visibility_level=dict(default="0", choices=["0", "10", "20"]),
             import_url=dict(required=False),
-			ci_config_path=dict(required=False, default=None),
+            ci_config_path=dict(required=False, default=None),
             state=dict(default="present", choices=["present", 'absent']),
         ),
         supports_check_mode=True
@@ -329,7 +329,7 @@ def main():
     public = module.params['public']
     visibility_level = module.params['visibility_level']
     import_url = module.params['import_url']
-	ci_config_path = module.params['ci_config_path']
+    ci_config_path = module.params['ci_config_path']
     state = module.params['state']
 
     # We need both login_user and login_password or login_token, otherwise we fail.
@@ -382,7 +382,7 @@ def main():
                  "wiki_enabled": project.to_bool(wiki_enabled),
                  "snippets_enabled": project.to_bool(snippets_enabled),
                  "public": project.to_bool(public),
-				 "ci_config_path": ci_config_path,
+                 "ci_config_path": ci_config_path,
                  "visibility_level": int(visibility_level)}
 
     if project_exists and state == "absent":
